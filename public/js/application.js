@@ -11,4 +11,21 @@ $(document).ready(function(){
 	$("#box2").mouseenter(function(){
 		$("#box3").fadeIn(500);
 	});
+
+	$("#urlinput").submit(function(e) {
+
+    $.ajax({
+           type: "POST",
+           url: "/urls",
+           data: $("#urlinput").serialize(), // serializes the form's elements.
+           dataType: "JSON",
+           success: function(data)
+           {
+           	console.log("hi")
+           	$("#result").prepend("<tr><td><a href='http://localhost:9393/" + data.short_url + "'>http://shor.ty/" + data.short_url + "</a></td><td>"+ data.long_url +"</td><td>"+ data.click_count+"</td></tr>");
+           }
+         });
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+});
 });

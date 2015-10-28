@@ -9,7 +9,8 @@ post '/urls' do
 	@url = Url.new(long_url: params[:long_url])
 
 	if @url.save
-		redirect to '/'
+		@url.to_json
+		# redirect to '/'
 
 	else
 		@error = "That URL is invalid."
