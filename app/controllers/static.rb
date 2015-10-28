@@ -1,4 +1,4 @@
-require 'byebug'
+
 get '/' do
 	@urls = Url.last(5)
 	@urls.reverse!

@@ -21,11 +21,10 @@ $(document).ready(function(){
            dataType: "JSON",
            success: function(data)
            {
-           	console.log("hi")
            	$("#result").prepend("<tr><td><a href='http://localhost:9393/" + data.short_url + "'>http://shor.ty/" + data.short_url + "</a></td><td>"+ data.long_url +"</td><td>"+ data.click_count+"</td></tr>");
            }
          });
 
     e.preventDefault(); // avoid to execute the actual submit of the form.
-});
+	});
 });
